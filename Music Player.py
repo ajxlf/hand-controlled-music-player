@@ -7,7 +7,7 @@ from scipy.signal import resample
 from pydub import AudioSegment
 
 # Load and normalize audio
-audio_path = r"C:\Users\ajfer\Downloads\song.mp3"
+audio_path = r"paste path to your audio file" #update this line
 song = AudioSegment.from_file(audio_path).set_channels(1).set_frame_rate(44100)
 audio_data: np.ndarray = np.array(song.get_array_of_samples()).astype(np.float32)
 audio_data /= np.max(np.abs(audio_data))
