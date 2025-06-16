@@ -86,4 +86,4 @@ Pull requests and suggestions welcome! Open an issue or fork the repo.
 
 ---
 
-Built with ❤️ using OpenCV, MediaPipe, and a bit of musical flair.
+Built using OpenCV and MediaPipe.
