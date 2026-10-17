@@ -1,89 +1,89 @@
 # Hand-Controlled Audio Player
 
-An interactive Python-based audio player that uses your hands to control playback speed and volume through your webcam. Featuring real-time gesture tracking, animated visual feedback, and intuitive pinch-based controls, this project combines computer vision and audio processing into a fun and futuristic experience.
+A webcam-controlled audio player built with Python, OpenCV and MediaPipe. Hand gestures control playback speed, volume and play/pause, with animated visual feedback.
 
----
+## Features
 
-## 🎯 Features
+- **Playback speed:** move your hands closer together or farther apart to adjust speed
+- **Volume:** use a pinch gesture with your left hand
+- **Play/pause:** use a pinch gesture with your right hand
+- **Visual feedback:** animated waveform bars respond to the distance between your hands and the playback state
+- **Playback progress:** a progress indicator shows the current position in the track
 
-- **Playback Speed Control**: Adjust speed by changing the distance between your hands.
-- **Volume Control**: Pinch with your left hand to control the volume level.
-- **Play/Pause Gesture**: Pinch with your right hand to toggle playback.
-- **Visual Feedback**: Dynamic wave bars between hands animate with music and respond to hand gestures.
-- **Progress Bar**: Displays current playback progress at the bottom of the screen.
+## Technology
 
----
-
-## 🛠️ Requirements
-
-- Python 3.9+
+- Python
 - OpenCV
 - MediaPipe
 - NumPy
 - sounddevice
-- scipy
+- SciPy
 - pydub
 
-Install dependencies:
+## Prerequisites
 
-```bash
-pip install opencv-python mediapipe numpy sounddevice scipy pydub
-```
+- Python 3.9 or later
+- A working webcam
+- Audio output
+- FFmpeg installed if you intend to load MP3 or other FFmpeg-supported formats through pydub
 
-Also install ffmpeg if you're using .mp3:
+## Setup and run
 
-```bash
-# Windows (choco):
-choco install ffmpeg
+1. Clone or download this repository and open a terminal in the project directory.
+2. Create and activate a virtual environment (recommended).
 
-# Mac (brew):
-brew install ffmpeg
-```
+   **Windows**
+   ```powershell
+   python -m venv .venv
+   .venv\Scripts\activate
+   ```
 
----
+   **macOS / Linux**
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   ```
 
-## 🚀 How to Run
+3. Install the Python packages:
 
-1. Place your audio file in the project folder and update the `audio_path` in the script.
-2. Add `play.png` and `pause.png` icons to the project directory.
-3. Run the Python script:
+   ```bash
+   pip install opencv-python mediapipe numpy sounddevice scipy pydub
+   ```
 
-```bash
-python hand_controlled_player.py
-```
+4. Open `Music Player.py` and replace the placeholder value of `audio_path` near the top of the file with the path to an audio file on your computer.
 
-4. Use your webcam and hands to interact:
-   - 🖐️ Move hands apart to speed up.
-   - 🤏 Left hand pinch = Volume control.
-   - 🤏 Right hand pinch = Play/Pause toggle.
+   **Windows example**
+   ```python
+   audio_path = r"C:\Users\YourName\Music\track.mp3"
+   ```
 
----
+   **macOS / Linux example**
+   ```python
+   audio_path = "/Users/yourname/Music/track.mp3"
+   ```
 
-## 📸 Screenshots
+5. Keep `play.png` and `pause.png` in the same directory as `Music Player.py`; these image files are used by the interface.
+6. Run the script:
 
-*Add demo screenshots or GIFs here to showcase the wave bars and UI.*
+   ```bash
+   python "Music Player.py"
+   ```
 
----
+The webcam and audio device must be available to Python. If an MP3 fails to load, confirm that FFmpeg is installed and available on your system path.
 
-## 💡 Ideas for Expansion
+## Controls
 
-- Spotify/YouTube Music integration
-- Add gesture-based track skipping
-- Save hand movement as visual animations
-- Convert to desktop app (PyInstaller) or mobile (Kivy)
+| Gesture | Action |
+|---|---|
+| Move both hands farther apart | Increase playback speed |
+| Move both hands closer together | Decrease playback speed |
+| Pinch with the left hand | Adjust volume |
+| Pinch with the right hand | Toggle play/pause |
 
----
+## Current limitations
 
-## 📄 License
+The audio file is selected by editing a local path in the source code. A packaged installer, in-app file picker and recorded demo are not included.
 
-MIT License
+## Licence
 
----
-
-## 🤝 Contributions
-
-Pull requests and suggestions welcome! Open an issue or fork the repo.
-
----
-
-Built using OpenCV and MediaPipe.
+A separate licence file is not currently included. Confirm the intended licence and add a `LICENSE` file with the correct copyright holder before redistributing this project.
